@@ -1,0 +1,19 @@
+library(dplyr)
+aquamarine <- aquamarine %>% 
+  filter(Prey.length.unit == "cm") %>% 
+  mutate(Prey_length_standardized = Prey.length*10)
+
+aquamarine <- aquamarine %>% 
+  filter(Prey.width.unit == "cm") %>% 
+  mutate(Prey_width_standardized = Prey.width*10) 
+ 
+#aquamarine <- aquamarine %>% 
+ # filter(Predator.width.unit == "cm") %>% 
+ # mutate(Predator_width_standardized = Predator.width*10) 
+
+aquamarine <- aquamarine %>% 
+  filter(Predator.length.unit == "cm") %>% 
+  mutate(Predator_length_standardized = Predator.length*10)
+
+aquamarine %>% 
+  select(Prey.length, Prey_length_standardized, Predator.length, Predator_length_standardized)
